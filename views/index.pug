@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  main
+    div.menu-container
+      
+      button#rooms-button.fa.fa-bars
+      div#rooms(style='display:none')
+        //choose a room to chat in
+        label(for='chooseroom') choose a room:
+        input(type='text' name='chooseroom' id='ChooseRoom')
+        div#suggest
+          ul#suggestions
+      button#leaveroom-menu.fa.fa-close
+    div#container
+      div#roomName
+        p Room:
+        p#roomNameText
+      //Chat messages
+      div#messages
+
+      //Input message
+      div#inputMessage
+        label(for='message') Message:
+        input(type='text' name='message' id='message')
+        input(type='submit' value='Send' id="sendMessage")
+
+  //Start ws server
+  datalist#roomList
+  script(src='/javascripts/ws.js')
+
+  //Add Setting button
+  script(src="/javascripts/dropdownMenu.js") 
+    
