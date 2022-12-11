@@ -31,7 +31,7 @@ To use the Chat Application, follow these steps:
 
 The Chat Application consists of the following files:
 
-- `ws.js`: This file contains the code for the WebSocket server that sends and receives messages to and from the chat rooms.
+- `/Chat`: This folder contains the code for the WebSocket server that sends and receives messages to and from the chat rooms.
 - `index.js`: This file contains the code for the server that host html and handle websocket queries.
 - `pug` template: This file contains the HTML layout for the Chat Application.
 
