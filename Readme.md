@@ -4,6 +4,20 @@ Welcome to the Chat Application!
 
 This application allows users to choose a chat room from a dropdown menu and send messages to that room.
 
+## Installation
+
+To install the Chat Application, follow these steps:
+```bash
+npm i express ws pug cookie-parser --save
+```
+To run the Chat Application :
+```bash
+    npm run start
+```
+OR
+```bash
+    node ./bin/www
+```
 ## Usage
 
 To use the Chat Application, follow these steps:
