@@ -35,6 +35,3 @@ The Chat Application consists of the following files:
 - `index.js`: This file contains the code for the server that host html and handle websocket queries.
 - `pug` template: This file contains the HTML layout for the Chat Application.
 
-## License
-
-The Chat Application is licensed under the MIT License. See `LICENSE` for more information.
