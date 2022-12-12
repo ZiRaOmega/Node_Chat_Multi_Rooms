@@ -146,6 +146,7 @@ ul#suggestions{
   width: -webkit-fill-available;
   flex-direction: row;
   flex-basis: 50%;
+  flex-flow: row;
 }
 #rooms-button{
   flex-direction: column;
