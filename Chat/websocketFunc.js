@@ -76,7 +76,7 @@ const CreateRoomListAndSendittoUser = (username) => {
  * @param {String} username 
  */
 const DisconnectUserFromRoom = (username) => {
-    TalkToRoom(username, 'left room');
+    TalkToRoomAsServer(username, username+" left room")
     clients.forEach(function (client) {
         if (client.username == username) {
             client.Leave()
@@ -103,6 +103,26 @@ const TalkToRoom = (username, message) => {
     clients.forEach(function (client) {
         if (client.room == room) {
             var newMessage = new Message(username, message, 'message', room);
+            History.push(newMessage);
+            client.send(newMessage.MessageFormatted());
+        }
+    }
+    );
+}
+const TalkToRoomAsServer = (username,message) => {
+    var room = null;
+    clients.forEach(function (client) {
+        if (client.username == username) {
+            room = client.room;
+        }
+    });
+    if (room == null) {
+        TalkAsServer(username, 'You are not in a room');
+        return;
+    }
+    clients.forEach(function (client) {
+        if (client.room == room) {
+            var newMessage = new Message("Server", message, 'message', room);
             History.push(newMessage);
             client.send(newMessage.MessageFormatted());
         }
