@@ -16,7 +16,7 @@ class User {
         this.username = newUsername;
     }
     constructor(username, room, ws) {
-        this.username = username == null || username=="" ? UserNameRandomizer() : username;
+        this.username = username == null || username=="" ? "Anonymous" : username;
         this.room = room == null|| room=="" ? null : room;
         this.ws = ws;
     }
@@ -35,16 +35,6 @@ class Message {
         this.messageType = messageType;
         this.room = room;
     }
-}
-UserNameRandomizer = () => {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    for (var i = 0; i < 5; i++)
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-    if (clients.includes(text)) {
-        UserNameRandomizer();
-    }
-    return text;
 }
 
 module.exports = {
