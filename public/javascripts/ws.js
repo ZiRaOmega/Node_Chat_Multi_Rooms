@@ -16,6 +16,7 @@ websocket.onmessage = function (event) {
         message.classList.add('message');
         message.innerHTML = data.username + ': ' + data.message;
         document.getElementById('messages').appendChild(message);
+       
     } else if (data.messageType == 'joined room') {
         
         var roomTitle = document.getElementById('roomNameText');
@@ -37,6 +38,7 @@ websocket.onmessage = function (event) {
             roomList.appendChild(option)
         }
     }
+    setFocusOnDivWithId('messages');
 }
 document.addEventListener('DOMContentLoaded', function () {
     var username = prompt('What is your username?');
@@ -152,6 +154,7 @@ document.addEventListener("keyup", function (event) {
         websocket.send(JSON.stringify({ username: username, message: message, messageType: 'message' }));
         document.getElementById('message').value = '';
     }});
+    function setFocusOnDivWithId(elementId) {   const scrollIntoViewOptions = { behavior: "smooth", block: "center" };   document.getElementById(elementId).scrollIntoView(scrollIntoViewOptions); }; setFocusOnDivWithId(elementId);
 /*
 //Non-Obsfucated Code
 const websocket = new WebSocket('ws://localhost:3001');
