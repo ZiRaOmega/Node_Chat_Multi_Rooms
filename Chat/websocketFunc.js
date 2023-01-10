@@ -50,6 +50,7 @@ const ConnectUserToRoom = (username, room) => {
         if (client.username == username && client.room != room) {
             client.Join(room)
             TalkToUser(username, 'You have joined ' + room, 'joined room', room);
+            TalkToRoomAsServer(username, username + ' joined room');
             AlreadyConnected = false;
         }
     });
