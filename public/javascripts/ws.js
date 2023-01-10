@@ -1,4 +1,4 @@
-const websocket = new WebSocket('ws://179.61.219.100/:3001');
+const websocket = new WebSocket('ws://179.61.219.100:3001');
 
 websocket.onmessage = function (event) {
     var username = document.cookie.split('=')[1];
