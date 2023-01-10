@@ -175,6 +175,12 @@ const TalkToAll = (message) => {
  * @param {String} username 
  */
 const SendHistory = (username) => {
+    //Remove duplicates from history
+    History = History.filter((thing, index, self) =>
+        index === self.findIndex((t) => (
+            t.username === thing.username && t.message === thing.message
+        ))
+    )
     clients.forEach(function (client) {
         if (client.username == username) {
             History.forEach(function (message) {
