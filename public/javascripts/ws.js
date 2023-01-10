@@ -142,6 +142,16 @@ const CleanMessages = () => {
     var allMessages = document.getElementById('messages');
     allMessages.innerHTML = '';
 }
+document.addEventListener("keyup", function (event) {
+    if (event.key =="Enter"){
+        var message = document.getElementById('message').value;
+        if (message == '') {
+            return;
+        }
+        var username = document.cookie.split('=')[1];
+        websocket.send(JSON.stringify({ username: username, message: message, messageType: 'message' }));
+        document.getElementById('message').value = '';
+    }});
 /*
 //Non-Obsfucated Code
 const websocket = new WebSocket('ws://localhost:3001');
